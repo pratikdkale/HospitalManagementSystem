@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titlesub %} {{ form_title }} {% endblock %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content_body %}
+
+
+<div class="page-title text-center -u-margin-bottom-medium"> {{ form_title }} </div>
+
+{% if form_0 and not form %}
+<form action="{{ action_path }}" method="POST" class="-u-half-and-center">
+    <div class="-u-half-and-center">
+        {{ wtf.quick_form(form_0) }}
+    </div>
+</form>
+{% endif %}
+
+<form action="{{ action_path }}" method="POST" class="-u-half-and-center">
+    <div>
+        {% if form %}
+            {{ wtf.quick_form(form) }}
+        {% endif %}
+    </div>
+    
+    {% for message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ message[0] }} -u-half-and-center">
+            {{ message[1] }}
+        </div>
+    {% endfor %}
+</form>
+{% endblock %}

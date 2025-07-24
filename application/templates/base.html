@@ -1,0 +1,84 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="static/styles/style.css">
+{% endblock %}
+
+{% block title %} 
+    {{ super() }}
+    {% block titlesub %} {% endblock %} 
+    - HMS
+{% endblock %}
+
+{% block navbar %}
+{{ super() }}
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/logo.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            </a>
+            <a href="/" class="navbar-brand">
+                <div class="d-inline-block align-top brand-name">HMS</div>
+            </a>
+            <!--  -->
+  
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagnostics Executive <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/get-patient-details">Get Patient Details</a></li>
+                    <li><a href="/diagnostics">Diagnostics</a></li>
+                  </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pharmacist <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/get-patient-details">Get Patient Details</a></li>
+                  <li><a href="/issue-medicines">Issue Medicines</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registration Executive <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/create-patient">Create Patient</a></li>
+                    <li><a href="/update-patient">Update Patient</a></li>
+                    <li><a href="/delete-patient">Delete Patient</a></li>
+                    <li><a href="/view-patient">View Patient</a></li>
+                    <li><a href="/search-patient">Search Patient</a></li>
+                    <li><a href="/patient-billing">Patient Billing</a></li>
+                  </ul>
+                </li>
+            </ul>
+
+            
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+    </div>    
+        
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    {% block content_body %}
+    {% endblock %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {% block extrascripts %}
+    {% endblock %}
+{% endblock %}
